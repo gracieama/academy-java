@@ -1,4 +1,4 @@
-package com.bptn.course.hello;
+package com.bptn.course.Week1;
 
 import java.util.Scanner;
 

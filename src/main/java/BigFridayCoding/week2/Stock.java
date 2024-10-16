@@ -1,4 +1,4 @@
-package com.bptn.course.Friday_04_10_BigCoding;
+package BigFridayCoding.week2;
 
 public class Stock {
 

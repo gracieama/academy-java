@@ -1,4 +1,4 @@
-package Friday_28_09_BigCoding;
+package BigFridayCoding.week1;
 
 import java.util.Scanner;
 
@@ -41,6 +41,7 @@ public class StringPluralizer {
 
 		}
 		System.out.println(amt + " " + stringWord);
+		scanner.close();
 
 
 	}

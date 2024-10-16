@@ -1,13 +1,13 @@
-package Oop;
+package Week1.Oop;
 
-public class Person {
+public class Persons {
 	   // instance variables
 	   private String name;
 	   private String email;
 	   private String phoneNumber;
 
 	   // constructor: construct a Person copying in the data into the instance variables
-	   public Person(String initName, String initEmail, String initPhone) {
+		public Persons(String initName, String initEmail, String initPhone) {
 	      name = initName;
 	      email = initEmail;
 	      phoneNumber = initPhone;
@@ -23,10 +23,10 @@ public class Person {
 	   // main method for testing
 	   public static void main(String[] args) {
 	      // call the constructor to create a new person
-	      Person p1 = new Person("Sana", "sana@gmail.com", "123-456-7890");
+			Persons p1 = new Persons("Sana", "sana@gmail.com", "123-456-7890");
 	      // call p1's print method
 	      p1.print();
-	      Person p2 = new Person("jean", "jean@gmail.com", "404 899-9955");
+			Persons p2 = new Persons("jean", "jean@gmail.com", "404 899-9955");
 	      p2.print();
 
 	     

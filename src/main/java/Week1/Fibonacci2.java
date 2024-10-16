@@ -1,4 +1,4 @@
-package com.bptn.course.Week1;
+package Week1;
 
 public class Fibonacci2 {
 

@@ -1,4 +1,4 @@
-package Oop;
+package Week1.Oop.Bank;
 
 class ChequingAccount extends BankAccount {
 

@@ -1,4 +1,4 @@
-package Friday_28_09_BigCoding;
+package BigFridayCoding.week1;
 
 import java.util.Arrays;
 import java.util.Scanner;

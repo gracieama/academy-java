@@ -1,4 +1,4 @@
-package Oop;
+package Week1.Oop.Dept;
 
 public class DepartmentSystem {
 
@@ -6,6 +6,8 @@ public class DepartmentSystem {
 
 		SalesDepartment mySales = new SalesDepartment("HR Department", 20, 30.00);
 		mySales.showInfo();
+		
+
 	}
 
 }

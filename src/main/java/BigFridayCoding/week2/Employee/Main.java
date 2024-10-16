@@ -1,4 +1,4 @@
-package com.bptn.course.Friday_04_10_BigCodingEmployee;
+package BigFridayCoding.week2.Employee;
 
 public class Main {
 	public static void main(String[] args) {

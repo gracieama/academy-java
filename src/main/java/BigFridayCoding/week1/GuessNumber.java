@@ -1,4 +1,4 @@
-package Friday_28_09_BigCoding;
+package BigFridayCoding.week1;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class GuessNumber {
 		Scanner scanner = new Scanner(System.in);
 
 		int targetNumber = 23;
-		int guess = 0;
+		int guess;
 		boolean guessAgain = true;
 
 		do {
@@ -31,10 +31,12 @@ public class GuessNumber {
 				// if guess is targetNumber, 23
 				System.out.println("Congratulations! You guessed the number correctly!");
 				// ends the loop once targeNumber is valid
+				break;
 			}
 			guess = 0;
 		}
-		} while (guessAgain); // while guess is != targetNumber
+	} while (guessAgain); // while guess is != targetNumber
+		scanner.close();
 
 	}
 

@@ -1,4 +1,4 @@
-package Oop;
+package Week1.Oop.Bank;
 
 // public is the abstraction
 // class is the encapsulation

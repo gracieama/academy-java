@@ -1,4 +1,4 @@
-package Friday_28_09_BigCoding;
+package BigFridayCoding.week1;
 
 import java.util.Scanner;
 
@@ -83,5 +83,6 @@ public class Calculation {
 			}
 
 		} while (calcAgain);
+		scanner.close();
 	}
 }

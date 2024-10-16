@@ -1,4 +1,4 @@
-package com.bptn.course.Week1;
+package Week1;
 
 import java.util.Scanner;
 
@@ -27,6 +27,7 @@ public class Challenge5 {
 		 * 
 		 * default: System.out.println("The amount you entered is not sufficient"); }
 		 */
+		scanner.close();
 	}
 
 }

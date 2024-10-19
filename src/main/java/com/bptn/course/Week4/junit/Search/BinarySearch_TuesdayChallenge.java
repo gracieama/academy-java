@@ -1,8 +1,8 @@
-package com.bptn.course.Week4.junit;
+package com.bptn.course.Week4.junit.Search;
 
 import java.util.Arrays;
 
-public class BinarySearchChallenge {
+public class BinarySearch_TuesdayChallenge {
 
 	public void Start() {
 
@@ -39,7 +39,7 @@ public class BinarySearchChallenge {
 	}
 
 	public static void main(String[] args) {
-		BinarySearchChallenge main = new BinarySearchChallenge();
+		BinarySearch_TuesdayChallenge main = new BinarySearch_TuesdayChallenge();
 		main.Start();
 	}
 }

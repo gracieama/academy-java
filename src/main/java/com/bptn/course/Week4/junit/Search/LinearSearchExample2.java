@@ -1,4 +1,4 @@
-package com.bptn.course.Week4.junit;
+package com.bptn.course.Week4.junit.Search;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -11,7 +11,8 @@ public class SpellChecker {
 
 	public SpellChecker() throws IOException {
 		// Let's use java.nio method readAllLines!
-		List<String> lines = Files.readAllLines(Paths.get("dictionary.txt"));
+		List<String> lines = Files.readAllLines(Paths.get(
+				"C:\\Dev\\workspace-academy-java\\academy-java\\src\\main\\java\\com\\bptn\\course\\Week4\\junit\\SpellChecker\\dictionary.txt"));
 		dictionary = new ArrayList<String>(lines);
 
 	}

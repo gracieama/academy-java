@@ -2,7 +2,7 @@ package Week1;
 
 import java.util.Scanner;
 
-public class SwitchStatement {
+public class SwitchStatement_VendingMachine {
 
 	public static void main(String[] args) {
 
@@ -41,8 +41,6 @@ public class SwitchStatement {
 		// 1. Allow multiple selections
 		// 2. Calculate total price for the order
 		// 3. While exiting, show the total price
-
-		scanner.close();
 
 	}
 

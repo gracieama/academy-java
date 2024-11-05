@@ -29,7 +29,6 @@ public class BinarySearch_TuesdayChallenge {
 
 			if (arr[mid] == key) {
 				return arr[mid];
-				// return mid; // Return the index of the found element
 			} else if (arr[mid] < key) {
 				left = mid + 1;
 			} else if (arr[mid] > key) {

@@ -39,6 +39,8 @@ public class EncryptWord {
 
 		System.out.println("Encrypted word: " + encrypted);
 
+		scanner.close();
+
 
 	}
 

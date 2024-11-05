@@ -86,5 +86,7 @@ public class Calculator {
 		} while (goAgain);
 
 		// breaks to here
+		scanner.close();
+
 	}
 }

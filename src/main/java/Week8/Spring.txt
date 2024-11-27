@@ -1,0 +1,116 @@
+1. In the following code, what will happen if we remove the @CrossOrigin and then call the endpoint from an application that runs at different port (Example: port 3000) ? Why does that happen?
+@CrossOrigin
+@RestController
+@RequestMapping("/feeds")
+public class FeedController {
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    FeedService feedService;
+	@GetMapping("/{feedId}")
+	public Feed getFeed(@PathVariable int feedId) {
+		
+		logger.debug("Getting Feed, feedId: {}", feedId);
+		
+		return this.feedService.getFeedById(feedId);	
+	}
+}
+
+
+2. Will the same thing happen if we call the endpoint from Postman? Why?
+   Hint: Use the code in question one above.
+ 
+
+3. If we use the @DeleteMapping annotation on a controller's method, must that method delete something from the database?
+ 
+
+4. Which is it better to use when we receive sensitive data, such as a password, in a @Controller: @GetMapping or @Postmapping? Why?
+ 
+
+
+5. Under what conditions should we return a ResponseEntity in a Controller's method instead of returning the object that contains the data directly?
+ 
+
+6. In the following ExceptionHandler, what is the purpose of the method annotated with @GetMapping(ERROR_PATH)? What would happen if we didn't have that method?
+@RestController
+@RestControllerAdvice
+public class ExceptionHandling implements ErrorController {
+	
+    final Logger logger = LoggerFactory.getLogger(getClass());
+    ...
+    private static final String ERROR_PATH = "/error";
+    @ExceptionHandler(JWTDecodeException.class)
+    public ResponseEntity<HttpResponse> tokenDecodeException() {
+        return this.createHttpResponse(BAD_REQUEST, TOKEN_DECODE_ERROR);
+    }
+    @GetMapping(ERROR_PATH)
+    public ResponseEntity<HttpResponse> notFound404() throws Exception {
+        return this.createHttpResponse(NOT_FOUND, NO_MAPPING_EXIST_URL);
+    }
+    private ResponseEntity<HttpResponse> createHttpResponse(HttpStatus httpStatus, String message) {
+    	return new ResponseEntity<>(new HttpResponse(httpStatus.value(), httpStatus,
+    			httpStatus.getReasonPhrase().toUpperCase(), message), httpStatus);
+    }
+}
+
+7. Why do we ignore all the requests with method="OPTIONS" in the JwtAutorizationFilter below? Hint: see the arrow below.
+@Component
+public class JwtAuthorizationFilter extends OncePerRequestFilter {
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
+    ...
+    @Override
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {
+    	logger.debug("Running Jwt Filter, URL: {}, Method: {}", req.getRequestURL(), req.getMethod());
+    	   	    			
+    	try {    				
+    		
+    		/* Requests with method = OPTIONS are not validated. */
+    ---->	if ( !req.getMethod().equalsIgnoreCase(OPTIONS.name()) ) {
+    			
+    			String header = req.getHeader(AUTHORIZATION); /* Get the Header from the request. */
+    			
+    			/* Check if the JWT is present in the Header and starts with the JWT Prefix. */
+    			if ( this.isJwtPrefixValid(header) ){
+    				/* Validate the JWT and get the username from it. */
+    				String username = this.jwtService.getSubject(header.substring(7));
+    				
+    				/* Set the username in the Spring Security context so it can be used later. */
+    				SecurityContextHolder.getContext().setAuthentication(this.getAuthentication(username, req));
+    				
+    				logger.debug("User Authorized: {}", username);
+    			}
+    		}
+    		
+    		filterChain.doFilter(req, res);
+    	}
+    	catch(JWTVerificationException ex) {
+    		logger.debug("Token cannot be verified, Reason: {}", ex.getMessage());
+    				
+    		this.resolver.resolveException(req, res, null, ex);
+    	}       	
+    }
+}
+
+
+8. In the following code, why don't we annotate the Repository with @Repository as we do with the Controllers with @Controller and Services with @Service?
+public interface UserRepository extends JpaRepository<User, Integer> {
+	
+	Optional<User> findByEmailId(String email);
+          Optional<User> findByUsername(String username);
+}
+9. Does the user's password need to be encrypted in order to have Spring Security work with it? Explain your answer.
+
+10. What will happen if we remove the following dependency from our Spring application's pom.xml file? Explain your answer.
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+11. Is it okay to set the following spring configuration in a production environment? Explain your answer.
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 2
+
+12. In the WebConfigurityConfig we have the following code. Is it okay to disable the csrf protection as shown? Do we need it enabled in a production environment? Explain your answer.
+          .csrf((csrf) -> csrf.disable());
